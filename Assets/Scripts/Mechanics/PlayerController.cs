@@ -33,6 +33,7 @@ namespace Platformer.Mechanics
         /*internal new*/ public AudioSource audioSource;
         public Health health;
         public bool controlEnabled = true;
+        public bool facingRight = true;
 
         bool jump;
         Vector2 move;
@@ -118,16 +119,25 @@ namespace Platformer.Mechanics
                 }
             }
 
-            if (move.x > 0.01f)
-                spriteRenderer.flipX = false;
-            else if (move.x < -0.01f)
-                spriteRenderer.flipX = true;
+            if (move.x > 0.01f && !facingRight) 
+            {
+                transform.Rotate(0f, 180f, 0f);
+                facingRight = true;
+            }
+
+            else if (move.x < -0.01f && facingRight)
+            {
+                transform.Rotate(0f, 180f, 0f);
+                facingRight = false;
+            }
 
             animator.SetBool("grounded", IsGrounded);
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
             targetVelocity = move * maxSpeed;
         }
+
+        
 
         public enum JumpState
         {
