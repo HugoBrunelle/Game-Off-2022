@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour
             shotRight = playergb.velocity.x > 0 ? true : false;
         }
 
+        // Weapon Kickback
         if (playergb.velocity.x > 0 && shotRight)
         {
             playergb.velocity = -transform.right * currentSpeed;
