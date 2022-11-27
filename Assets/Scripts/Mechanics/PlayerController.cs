@@ -39,6 +39,7 @@ namespace Platformer.Mechanics
         Vector2 move;
         SpriteRenderer spriteRenderer;
         Rigidbody2D playerRb;
+
         internal Animator animator;
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
@@ -70,7 +71,7 @@ namespace Platformer.Mechanics
                     jumpState = JumpState.PrepareToJump;
                 else if (Input.GetButtonUp("Jump"))
                 {
-                    stopJump = true;
+                    stopJump = false;
                     Schedule<PlayerStopJump>().player = this;
                 }
             }

@@ -24,7 +24,6 @@ public class FatMama : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
-
         }
     }
 }

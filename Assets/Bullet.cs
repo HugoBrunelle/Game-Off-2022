@@ -13,9 +13,9 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        var enemy = collision.GetComponent<FatMama>();
+        var enemy = collider.GetComponent<FatMama>();
         if (enemy != null)
         {
             enemy.GetHurt(Bullet.damage);
