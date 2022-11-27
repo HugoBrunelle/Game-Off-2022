@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 0.5f;
+    public static float damage = 50f;
     public Rigidbody2D rb;
 
     void Start()
@@ -12,9 +13,13 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Debug.Log(collision);
-        Destroy(gameObject);
+        var enemy = collision.GetComponent<FatMama>();
+        if (enemy != null)
+        {
+            enemy.GetHurt(Bullet.damage);
+            Destroy(gameObject);
+        }
     }
 }
