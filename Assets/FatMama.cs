@@ -23,7 +23,6 @@ public class FatMama : MonoBehaviour
         Health -= damage;
         if (Health <= 0)
         {
-            Debug.Log("Big Fat Mama Dead");
             Destroy(gameObject);
 
         }
