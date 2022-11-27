@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         }
         else if (playergb.velocity.x < 0 && !shotRight)
         {
-            playergb.velocity = -transform.right * currentSpeed;
+            playergb.velocity = new Vector2(-1f, 0) * currentSpeed;
             currentSpeed -= 0.1f;
         }
         else
