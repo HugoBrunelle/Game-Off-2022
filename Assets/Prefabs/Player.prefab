@@ -64,6 +64,7 @@ MonoBehaviour:
   health: {fileID: 0}
   controlEnabled: 1
   facingRight: 1
+  playerRb: {fileID: 50915408107096866}
 --- !u!212 &212064061491315838
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1208144871472054}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

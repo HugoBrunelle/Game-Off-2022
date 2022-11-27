@@ -38,6 +38,7 @@ namespace Platformer.Mechanics
         bool jump;
         Vector2 move;
         SpriteRenderer spriteRenderer;
+        Rigidbody2D playerRb;
         internal Animator animator;
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
@@ -50,6 +51,14 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+            playerRb = GetComponent<Rigidbody2D>();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            playerRb.isKinematic = false;
+            playerRb.bodyType = RigidbodyType2D.Dynamic;
         }
 
         protected override void Update()
