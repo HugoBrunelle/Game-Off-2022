@@ -121,12 +121,14 @@ namespace Platformer.Mechanics
 
             if (move.x > 0.01f && !facingRight) 
             {
+                transform.position += new Vector3(0.7f, 0f, 0f);
                 transform.Rotate(0f, 180f, 0f);
                 facingRight = true;
             }
 
             else if (move.x < -0.01f && facingRight)
             {
+                transform.position += new Vector3(-0.7f, 0f, 0f);
                 transform.Rotate(0f, 180f, 0f);
                 facingRight = false;
             }
